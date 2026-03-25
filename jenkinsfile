@@ -10,12 +10,6 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh '''
@@ -25,19 +19,13 @@ pipeline {
             }
         }
 
-        // stage('Push Docker Image') {
-        //     steps {
-        //         sh 'docker push laxmi916/devops-lab:${BUILD_NUMBER}'
-        //     }
-        // }
-        
-        stage('Create container') {
+        stage('Run Container') {
             steps {
-                sh 'docker run -d -p 3000:8080 Sruthika025/devops-lab:${BUILD_NUMBER}'
+                sh '''
+                docker rm -f html-container || true
+                docker run -d -p 3000:80 --name html-container Sruthika025/devops-lab:${BUILD_NUMBER}
+                '''
             }
         }
-
-
-
     }
 }
