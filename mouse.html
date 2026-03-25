@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head><title>Mouseover Event</title></head>
+<head>
+    <title>Event Registration</title>
+</head>
 <body>
-  <h2 onmouseover="showMessage()" id="hoverText">Hover over me!</h2>
-  <p id="msg"></p>
 
-  <script>
-    function showMessage() {
-      document.getElementById("msg").innerText = "You hovered over the text!";
-    }
-  </script>
+<h2>Register for Event</h2>
+
+<form action="/register" method="POST">
+    Name: <input type="text" name="name"><br><br>
+    Email: <input type="email" name="email"><br><br>
+    Phone: <input type="text" name="phone"><br><br>
+    <input type="submit" value="Register">
+</form>
+
 </body>
 </html>
-
