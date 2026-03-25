@@ -19,8 +19,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t node-docker-app:${BUILD_NUMBER} .
-                docker tag node-docker-app:${BUILD_NUMBER} Sruthika025/devops-lab:${BUILD_NUMBER}
+                docker build -t devops-lab:${BUILD_NUMBER} .
+                docker tag devops-lab:${BUILD_NUMBER} Sruthika025/devops-lab:${BUILD_NUMBER}
                 '''
             }
         }
